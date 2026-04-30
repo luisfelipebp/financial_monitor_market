@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_finance  
+    database: "{{ env_var('DB_NAME') }}"
+    schema: public 
+    tables:
+      - name: stock_quotes
+      - name: crypto_quotes

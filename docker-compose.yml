@@ -1,0 +1,61 @@
+services:
+  pgdatabase:
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - financial_market_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+  dbeaver:
+    image: dbeaver/cloudbeaver
+    restart: always
+    depends_on:
+      - pgdatabase
+    volumes:
+      - financial_market_dbeaver_data:/opt/cloudbeaver/workspace
+    ports:
+      - "8080:8978"
+  airflow:
+    build: .
+    container_name: airflow_finance
+    depends_on:
+      - pgdatabase
+    volumes: 
+      - ./dags:/opt/airflow/dags
+      - ./dbt_finance:/opt/airflow/dbt_finance
+    ports:
+      - "8081:8080"
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${DB_USER}:${DB_PASSWORD}@pgdatabase:5432/${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=pgdatabase
+      - DB_PORT=5432
+    command: standalone
+    
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase_finance
+    environment:
+      - MB_DB_TYPE=postgres
+      - MB_DB_DBNAME=metabase_db
+      - MB_DB_PORT=5432
+      - MB_DB_USER=root
+      - MB_DB_PASS=root
+      - MB_DB_HOST=pgdatabase
+    ports:
+      - "3000:3000"
+    depends_on:
+      - pgdatabase
+
+volumes:
+  financial_market_postgres_data:
+  financial_market_dbeaver_data:
+
+

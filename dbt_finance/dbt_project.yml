@@ -1,0 +1,11 @@
+name: 'finance_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'finance_analytics'
+model-paths: ["models"]
+target-path: "target"
+
+models:
+  finance_analytics:
+    +materialized: view

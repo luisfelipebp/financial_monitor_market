@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_stock_prices
+    columns: 
+      - name: ticker
+        tests: 
+          - not_null
+      - name: datetime
+        tests: 
+          - not_null
+
+  - name: mart_daily_performance
+    columns: 
+      - name: day_type
+        tests: 
+          - accepted_values:
+              values: ['Alta', 'Queda', 'Estável']
