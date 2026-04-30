@@ -1,4 +1,0 @@
-{
-    "dbt.profilesDir": "${workspaceFolder}/dbt_finance",
-    "dbt.dbtProjectDirectory": "${workspaceFolder}/dbt_finance"
-}
