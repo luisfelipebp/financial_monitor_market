@@ -460,37 +460,24 @@ Os dashboards exploram os marts produzidos pelo dbt e permitem leitura rápida d
 ### Visualizações construídas
 
 #### 1. Evolução de preço (30 dias)
-
 Exibe a evolução temporal do preço médio de abertura por ativo.
 
-```md
 ![Evolução de preço (30 dias)](./docs/images/dashboard_evolucao_preco_30_dias.png)
-```
 
 #### 2. Percentual de variação diária
-
 Compara a média de variação percentual diária por ticker, destacando dias de alta e baixa.
 
-```md
 ![Percentual de variação diária](./docs/images/dashboard_variacao_diaria.png)
-```
 
 #### 3. Ranking de volatilidade
-
 Mostra o índice de volatilidade calculado a partir do desvio padrão das variações percentuais.
 
-```md
 ![Ranking de volatilidade](./docs/images/dashboard_rank_volatilidade.png)
-```
 
 #### 4. Média móvel de 7 dias vs 30 dias
-
 Compara o comportamento de curto e médio prazo por ativo.
 
-```md
 ![Média móvel 7 dias vs 30 dias](./docs/images/dashboard_medias_moveis.png)
-```
----
 
 ## Melhorias futuras
 
