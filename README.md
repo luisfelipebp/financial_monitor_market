@@ -138,7 +138,7 @@ Essa decisão foi intencional. As duas fontes não competem entre si: elas se co
 ### 1. Clonar o repositório
 
 ```bash
-git clone [[URL_DO_REPOSITORIO]](https://github.com/luisfelipebp/financial_monitor_market)
+git clone https://github.com/luisfelipebp/financial_monitor_market
 cd FINANCIAL-MARKET-MONITOR
 ```
 
@@ -523,8 +523,8 @@ Este projeto evidencia competências relevantes para Engenharia de Dados Júnior
 
 **Luis Felipe Barbosa**
 
-* LinkedIn: `(https://www.linkedin.com/in/luisfelipebp/)`
-* GitHub: `(https://github.com/luisfelipebp)`
+* LinkedIn: `https://www.linkedin.com/in/luisfelipebp/`
+* GitHub: `https://github.com/luisfelipebp`
 
 ---
 
